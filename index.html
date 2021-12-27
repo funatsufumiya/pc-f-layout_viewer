@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC-F Layout Viewer</title>
+    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/pure-min.css">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
+        }
+
+        b,
+        strong,
+        .bold {
+            font-family: -apple-system, BlinkMacSystemFont, Roboto, "Segoe UI semibold", "Helvetica Neue", HelveticaNeue, YuGothic, "Yu Gothic", "Segoe UI", Verdana, Meiryo, sans-serif;
+        }
+
+        textarea {
+            font-size: 40pt;
+            width: 100%;
+            border: none !important;
+            line-height: 50pt;
+        }
+
+        textarea:focus {
+            outline: none;
+        }
+
+        div.table {
+            display: inline-block;
+        }
+
+        div.cell {
+            display: inline-block;
+        }
+
+        div.table,
+        div.cell {
+            border: 1px solid #595959;
+            border-collapse: collapse;
+        }
+
+        div.cell {
+            font-size: 18pt;
+            padding: 2px;
+            width: 60px;
+            height: 30px;
+            text-align: center;
+            vertical-align: middle;
+            display: table-cell;
+            background: white;
+        }
+
+        div.cell.sp {
+            border: none;
+            background: transparent;
+        }
+
+        div.cell.hp {
+            /* border-bottom: 3px solid black; */
+            background: #ffffe0;
+        }
+
+        div.cell.half {
+            width: 20px;
+            border: none;
+            background: transparent;
+        }
+
+        div.cell.one {
+            width: 40px;
+            border: none;
+            background: transparent;
+        }
+
+        div.cell.one-half {
+            width: 60px;
+            border: none;
+            background: transparent;
+        }
+
+        div.table {
+            margin-bottom: 5px;
+            /* border: 3px solid #595959 !important; */
+            background: #f0f0f0;
+            border: 3px solid #c0c0c0;
+        }
+
+        div.table.ja[data-table-hl] {
+            border: 3px solid #bb0000;
+        }
+
+        div.table.ja div.cell[data-hl] {
+            background-color: #bb0000;
+            color: white;
+        }
+
+        .ja-container {
+            display: none;
+        }
+
+        .ja-container.display {
+            display: inline-block;
+        }
+
+        .ja-container[data-table-hl] {
+            display: inline-block;
+        }
+
+        .en-container {
+            display: none;
+        }
+
+        .en-container[data-table-hl] {
+            display: inline-block;
+        }
+
+        div.table.en[data-table-hl] {
+            border: 3px solid #1FBB00;
+        }
+
+        div.table.en div.cell[data-hl] {
+            background-color: #1FBB00;
+            color: white;
+        }
+
+        body {
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea name="" id="" cols="30" rows="1"></textarea>
+    <br>
+    <br>
+
+    <div id="out"></div>
+    <div id="last"></div>
+
+    <div class="container ja-container display">
+        <div class="table ja">
+            <div class="row">
+                <div class="cell" data-val="フ">フ</div>
+                <div class="cell" data-val="小">小</div>
+                <div class="cell" data-val="、">、</div>
+                <div class="cell" data-val="（">（</div>
+                <div class="cell" data-val="”">”</div>
+                <div class="cell" data-val="ヴ">ヴ</div>
+                <div class="cell" data-val="Dy/Ty">Dy/Ty</div>
+                <div class="cell" data-val="--"></div>
+                <div class="cell" data-val="--"></div>
+                <div class="cell" data-val="--"></div>
+                <div class="cell" data-val="--"></div>
+            </div>
+            <div class="row">
+                <div class="cell half">&nbsp;</div>
+                <div class="cell" data-val="が">が</div>
+                <div class="cell" data-val="あ">あ</div>
+                <div class="cell" data-val="か">か</div>
+                <div class="cell" data-val="さ">さ</div>
+                <div class="cell" data-val="ざ">ざ</div>
+                <div class="cell" data-val="。">。</div>
+                <div class="cell" data-val="BS">BS</div>
+                <div class="cell" data-val="ゃ">ゃ</div>
+                <div class="cell" data-val="ゅ">ゅ</div>
+                <div class="cell" data-val="ょ">ょ</div>
+                <div class="cell" data-val="--"></div>
+            </div>
+            <div class="row">
+                <div class="cell one">&nbsp;</div>
+                <div class="cell" data-val="だ">だ</div>
+                <div class="cell" data-val="た">た</div>
+                <div class="cell" data-val="な">な</div>
+                <div class="cell hp" data-val="は">は</div>
+                <div class="cell" data-val="っ">っ</div>
+                <div class="cell" data-val="ー">ー</div>
+                <div class="cell hp" data-val="う">う</div>
+                <div class="cell" data-val="い">い</div>
+                <div class="cell" data-val="お">お</div>
+                <div class="cell" data-val="え">え</div>
+                <div class="cell" data-val="--"></div>
+            </div>
+            <div class="row">
+                <div class="cell one-half">&nbsp;</div>
+                <div class="cell" data-val="ぱ">ぱ</div>
+                <div class="cell" data-val="ま">ま</div>
+                <div class="cell" data-val="ら">ら</div>
+                <div class="cell" data-val="ば">ば</div>
+                <div class="cell" data-val="ん">ん</div>
+                <div class="cell" data-val="--"></div>
+                <div class="cell" data-val="--"></div>
+                <div class="cell" data-val="--"></div>
+                <div class="cell" data-val="--"></div>
+                <div class="cell" data-val="--"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+    <script>
+        var keymaps = [
+            ['あ', ['あ']],
+            ['か', ['か', 'き', 'く', 'け', 'こ', 'きゃ', 'きゅ', 'きょ']],
+            ['さ', ['さ', 'し', 'す', 'せ', 'そ', 'しゃ', 'しゅ', 'しょ']],
+            ['た', ['た', 'ち', 'つ', 'て', 'と', 'ちゃ', 'ちゅ', 'ちょ']],
+            ['な', ['な', 'に', 'ぬ', 'ね', 'の', 'にゃ', 'にゅ', 'にょ']],
+            ['は', ['は', 'ひ', 'ふ', 'へ', 'ほ', 'ひゃ', 'ひゅ', 'ひょ']],
+            ['ま', ['ま', 'み', 'む', 'め', 'も', 'みゃ', 'みゅ', 'みょ']],
+            ['ら', ['ら', 'り', 'る', 'れ', 'ろ', 'りゃ', 'りゅ', 'りょ']],
+            ['わ', ['わ', 'を', 'ん']],
+
+            ['が', ['が', 'ぎ', 'ぐ', 'げ', 'ご', 'ぎゃ', 'ぎゅ', 'ぎょ']],
+            ['だ', ['だ', 'ぢ', 'づ', 'で', 'ど', 'ぢゃ', 'ぢゅ', 'ぢょ']],
+            ['ざ', ['ざ', 'じ', 'ず', 'ぜ', 'ぞ', 'じゃ', 'じゅ', 'じょ']],
+            ['ば', ['ば', 'び', 'ぶ', 'べ', 'ぼ', 'びゃ', 'びゅ', 'びょ']],
+            ['ぱ', ['ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ', 'ぴゃ', 'ぴゅ', 'ぴょ']],
+            ['フ', ['ふぁ', 'ふぃ', 'ふぇ', 'ふぉ', 'ふゃ', 'ふゅ', 'ふょ']],
+            ['ヴ', ['ゔぁ', 'ゔぃ', 'ゔ', 'ゔぇ', 'ゔぉ', 'ゔゃ', 'ゔゅ', 'ゔょ']],
+
+            ['い', ['ぃ', 'い', 'き', 'し', 'ち', 'に', 'ひ', 'み', 'り', 'ぎ', 'ぢ', 'じ', 'び', 'ぴ', 'ふぃ', 'ゔぁ', 'でぃ', '＜', '＆']],
+            ['う', ['ぅ', 'う', 'く', 'す', 'つ', 'ぬ', 'ふ', 'む', 'る', 'ぐ', 'づ', 'ず', 'ぶ', 'ぷ', 'ゔぃ', 'でゅ', '～', '）', '’']],
+            ['え', ['ぇ', 'え', 'け', 'せ', 'て', 'ね', 'へ', 'め', 'れ', 'げ', 'で', 'で', 'べ', 'ぺ', 'ふぇ', 'ゔぇ', 'てぇ', '」', '＄']],
+            ['お', ['ぉ', 'お', 'こ', 'そ', 'と', 'の', 'ほ', 'も', 'ろ', 'ご', 'ど', 'ど', 'ぼ', 'ぽ', 'ふぉ', 'ゔぉ', 'でょ', '「', '＃']],
+
+            ['ゃ', ['や', 'ゃ', 'きゃ', 'しゃ', 'ちゃ', 'にゃ', 'ひゃ', 'みゃ', 'りゃ', 'ぎゃ', 'ぢゃ', 'じゃ', 'びゃ', 'ぴゃ', 'ふゃ', 'ゔゃ', 'てぃ']],
+            ['ゅ', ['ゆ', 'ゅ', 'きゅ', 'しゅ', 'ちゅ', 'にゅ', 'ひゅ', 'みゅ', 'りゅ', 'ぎゅ', 'ぢゅ', 'じゅ', 'びゅ', 'ぴゅ', 'ふゅ', 'ゔゅ', 'てゅ']],
+            ['ょ', ['よ', 'ょ', 'きょ', 'しょ', 'ちょ', 'にょ', 'ひょ', 'みょ', 'りょ', 'ぎょ', 'ぢょ', 'じょ', 'びょ', 'ぴょ', 'ふょ', 'ゔょ', 'てょ']],
+
+            ['ん', ['ん']],
+            ['っ', ['っ']],
+            ['ー', ['ー', '～']],
+
+            ['小', ['ぁ', 'ぃ', 'ぅ', 'ぇ', 'ぉ', 'ゃ', 'ゅ', 'ょ']],
+            ['、', ['、', '・', '？', '！']],
+            ['（', ['（', '）', '「', '」', '＜', '＞', '：', '；']],
+            ['”', ['”', '’', '＆', '＄', '＃', '＠', '＋', '＊']],
+            ['。', ['。']],
+
+            ['Dy/Ty', ['てぃ', 'てゅ', 'てょ', 'でゅ', 'でぃ', 'でょ', 'てぇ']],
+            // ['', ['', '', '', '', '']],
+            // ['', ['', '', '', '', '']],
+            // ['', ['', '', '', '', '']],
+        ];
+        function detect_keys(s) {
+            var keys = [];
+
+            for (var i = 0; i < keymaps.length; i++) {
+                var e = keymaps[i];
+                var key = e[0];
+                var lst = e[1];
+                if (lst.includes(s)) {
+                    // console.log(keys)
+                    keys.push(key);
+                }
+            }
+
+            return keys;
+        }
+
+        $(function () {
+            var $text = $("textarea");
+            var timer = undefined;
+
+            $text.keyup(function (e) {
+                if (typeof timer !== "undefined") {
+                    clearTimeout(timer);
+                    timer = undefined;
+                }
+
+                var text = $text.val();
+                // $("#out").text(text);
+
+                $("div.cell").removeAttr("data-hl");
+                $("div.table").removeAttr("data-table-hl");
+                $(".container").removeAttr("data-table-hl");
+
+                var last = (text.length > 0) ? text[text.length - 1] : "";
+                var last_two = (text.length > 1) ? text[text.length - 2] + text[text.length - 1] : "";
+                var keys_detected = detect_keys(last_two);
+                if (keys_detected.length === 0) {
+                    keys_detected = detect_keys(last);
+                }
+
+                keys_detected.forEach(e => {
+                    // console.log(e);
+                    var $e = $('div.cell[data-val="' + e + '"]');
+                    $e.attr("data-hl", 1);
+                    $e.parents("div.table").attr("data-table-hl", 1)
+                    $e.parents(".container").attr("data-table-hl", 1)
+                });
+
+                if ($(".en-container[data-table-hl]").length == 0) {
+                    $(".ja-container").addClass("display");
+                } else {
+                    $(".ja-container").removeClass("display");
+                }
+
+                timer = setTimeout(function () {
+                    $("div.cell").removeAttr("data-hl");
+                    $("div.table").removeAttr("data-table-hl");
+                    $(".container").removeAttr("data-table-hl");
+
+                    if ($(".en-container[data-table-hl]").length == 0) {
+                        $(".ja-container").addClass("display");
+                    } else {
+                        $(".ja-container").removeClass("display");
+                    }
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -59,8 +59,28 @@
         }
 
         div.cell.hp {
-            /* border-bottom: 3px solid black; */
-            background: #ffffe0;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            /* text-decoration-thickness: 1px; */
+            text-underline-offset: 3px;
+            /* border: 3px solid #595959; */
+            /* background: #ffffe0; */
+        }
+
+        div.cell.fn {
+            background: #F7D2FF;
+        }
+
+        div.cell.bs {
+            background: #FFD2D2;
+        }
+
+        div.cell.gyo {
+            background: #D2F5FF;
+        }
+
+        div.cell.dan {
+            background: #D2FFD4;
         }
 
         div.cell.half {
@@ -89,7 +109,7 @@
         }
 
         div.table.ja[data-table-hl] {
-            border: 3px solid #bb0000;
+            /* border: 3px solid #bb0000; */
         }
 
         div.table.ja div.cell[data-hl] {
@@ -144,10 +164,10 @@
         <div class="table ja">
             <div class="row">
                 <div class="cell" data-val="フ">フ</div>
-                <div class="cell" data-val="小">小</div>
-                <div class="cell" data-val="、">、</div>
-                <div class="cell" data-val="（">（</div>
-                <div class="cell" data-val="”">”</div>
+                <div class="cell fn" data-val="小">小</div>
+                <div class="cell fn" data-val="、">、</div>
+                <div class="cell fn" data-val="（">（</div>
+                <div class="cell fn" data-val="”">”</div>
                 <div class="cell" data-val="ヴ">ヴ</div>
                 <div class="cell" data-val="Dy/Ty">Dy/Ty</div>
                 <div class="cell" data-val="--"></div>
@@ -158,39 +178,39 @@
             <div class="row">
                 <div class="cell half">&nbsp;</div>
                 <div class="cell" data-val="が">が</div>
-                <div class="cell" data-val="あ">あ</div>
-                <div class="cell" data-val="か">か</div>
-                <div class="cell" data-val="さ">さ</div>
+                <div class="cell dan" data-val="あ">あ</div>
+                <div class="cell dan" data-val="か">か</div>
+                <div class="cell dan" data-val="さ">さ</div>
                 <div class="cell" data-val="ざ">ざ</div>
-                <div class="cell" data-val="。">。</div>
-                <div class="cell" data-val="BS">BS</div>
-                <div class="cell" data-val="ゃ">ゃ</div>
-                <div class="cell" data-val="ゅ">ゅ</div>
-                <div class="cell" data-val="ょ">ょ</div>
+                <div class="cell fn" data-val="。">。</div>
+                <div class="cell bs" data-val="BS">BS</div>
+                <div class="cell gyo" data-val="ゃ">ゃ</div>
+                <div class="cell gyo" data-val="ゅ">ゅ</div>
+                <div class="cell gyo" data-val="ょ">ょ</div>
                 <div class="cell" data-val="--"></div>
             </div>
             <div class="row">
                 <div class="cell one">&nbsp;</div>
                 <div class="cell" data-val="だ">だ</div>
-                <div class="cell" data-val="た">た</div>
-                <div class="cell" data-val="な">な</div>
-                <div class="cell hp" data-val="は">は</div>
+                <div class="cell dan" data-val="た">た</div>
+                <div class="cell dan" data-val="な">な</div>
+                <div class="cell dan hp" data-val="は">は</div>
                 <div class="cell" data-val="っ">っ</div>
-                <div class="cell" data-val="ー">ー</div>
-                <div class="cell hp" data-val="う">う</div>
-                <div class="cell" data-val="い">い</div>
-                <div class="cell" data-val="お">お</div>
-                <div class="cell" data-val="え">え</div>
+                <div class="cell fn" data-val="ー">ー</div>
+                <div class="cell gyo hp" data-val="う">う</div>
+                <div class="cell gyo" data-val="い">い</div>
+                <div class="cell gyo" data-val="お">お</div>
+                <div class="cell gyo" data-val="え">え</div>
                 <div class="cell" data-val="--"></div>
             </div>
             <div class="row">
                 <div class="cell one-half">&nbsp;</div>
                 <div class="cell" data-val="ぱ">ぱ</div>
-                <div class="cell" data-val="ま">ま</div>
-                <div class="cell" data-val="ら">ら</div>
+                <div class="cell dan" data-val="ま">ま</div>
+                <div class="cell dan" data-val="ら">ら</div>
+                <div class="cell dan" data-val="わ">わ</div>
                 <div class="cell" data-val="ば">ば</div>
                 <div class="cell" data-val="ん">ん</div>
-                <div class="cell" data-val="--"></div>
                 <div class="cell" data-val="--"></div>
                 <div class="cell" data-val="--"></div>
                 <div class="cell" data-val="--"></div>
@@ -211,7 +231,7 @@
             ['は', ['は', 'ひ', 'ふ', 'へ', 'ほ', 'ひゃ', 'ひゅ', 'ひょ']],
             ['ま', ['ま', 'み', 'む', 'め', 'も', 'みゃ', 'みゅ', 'みょ']],
             ['ら', ['ら', 'り', 'る', 'れ', 'ろ', 'りゃ', 'りゅ', 'りょ']],
-            ['わ', ['わ', 'を', 'ん']],
+            ['わ', ['わ', 'うぃ', 'うぇ', 'を']],
 
             ['が', ['が', 'ぎ', 'ぐ', 'げ', 'ご', 'ぎゃ', 'ぎゅ', 'ぎょ']],
             ['だ', ['だ', 'ぢ', 'づ', 'で', 'ど', 'ぢゃ', 'ぢゅ', 'ぢょ']],
@@ -221,10 +241,10 @@
             ['フ', ['ふぁ', 'ふぃ', 'ふぇ', 'ふぉ', 'ふゃ', 'ふゅ', 'ふょ']],
             ['ヴ', ['ゔぁ', 'ゔぃ', 'ゔ', 'ゔぇ', 'ゔぉ', 'ゔゃ', 'ゔゅ', 'ゔょ']],
 
-            ['い', ['ぃ', 'い', 'き', 'し', 'ち', 'に', 'ひ', 'み', 'り', 'ぎ', 'ぢ', 'じ', 'び', 'ぴ', 'ふぃ', 'ゔぁ', 'でぃ', '＜', '＆']],
+            ['い', ['ぃ', 'い', 'き', 'し', 'ち', 'に', 'ひ', 'み', 'り', 'ぎ', 'ぢ', 'じ', 'び', 'ぴ', 'うぃ', 'ふぃ', 'ゔぁ', 'でぃ', '＜', '＆']],
             ['う', ['ぅ', 'う', 'く', 'す', 'つ', 'ぬ', 'ふ', 'む', 'る', 'ぐ', 'づ', 'ず', 'ぶ', 'ぷ', 'ゔぃ', 'でゅ', '～', '）', '’']],
-            ['え', ['ぇ', 'え', 'け', 'せ', 'て', 'ね', 'へ', 'め', 'れ', 'げ', 'で', 'で', 'べ', 'ぺ', 'ふぇ', 'ゔぇ', 'てぇ', '」', '＄']],
-            ['お', ['ぉ', 'お', 'こ', 'そ', 'と', 'の', 'ほ', 'も', 'ろ', 'ご', 'ど', 'ど', 'ぼ', 'ぽ', 'ふぉ', 'ゔぉ', 'でょ', '「', '＃']],
+            ['え', ['ぇ', 'え', 'け', 'せ', 'て', 'ね', 'へ', 'め', 'れ', 'げ', 'で', 'で', 'べ', 'ぺ', 'うぇ', 'ふぇ', 'ゔぇ', 'てぇ', '」', '＄']],
+            ['お', ['ぉ', 'お', 'こ', 'そ', 'と', 'の', 'ほ', 'も', 'ろ', 'ご', 'ど', 'ど', 'ぼ', 'ぽ', 'を', 'ふぉ', 'ゔぉ', 'でょ', '「', '＃']],
 
             ['ゃ', ['や', 'ゃ', 'きゃ', 'しゃ', 'ちゃ', 'にゃ', 'ひゃ', 'みゃ', 'りゃ', 'ぎゃ', 'ぢゃ', 'じゃ', 'びゃ', 'ぴゃ', 'ふゃ', 'ゔゃ', 'てぃ']],
             ['ゅ', ['ゆ', 'ゅ', 'きゅ', 'しゅ', 'ちゅ', 'にゅ', 'ひゅ', 'みゅ', 'りゅ', 'ぎゅ', 'ぢゅ', 'じゅ', 'びゅ', 'ぴゅ', 'ふゅ', 'ゔゅ', 'てゅ']],
